@@ -4,15 +4,10 @@ pipeline {
     stage('Environment  Build') {
       steps {
         withCredentials([usernamePassword(credentialsId: '1', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-          bat 'echo $PASSWORD'
-          echo USERNAME
-          echo "username is $USERNAME"
-          echo "password is $PASSWORD"
+          bat """export DB_USERNAME="${USERNAME}"
+          export DB_PASSWORD = "${PASSWORD}"
+          python PythonCredCheck / test.py """
         }
-        sh("""
-        export DB_USERNAME = "${usernameVariable}"
-        export DB_PASSWORD = "${passwordVariable}"
-        python PythonCredCheck / test.py """)
       }
     }
   }
