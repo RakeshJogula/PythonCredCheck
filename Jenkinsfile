@@ -1,4 +1,5 @@
 pipeline {
+    agent { label 'ops_slave' }
     stages {
         stage('Environment  Build') {
             steps {
@@ -8,15 +9,19 @@ pipeline {
                 sh "uptime"
                 sh "python3 -m venv test_env"
                 sh "source ./test_env/bin/activate"
-                sh "pip3 install pandas psycopg2"
                 sh """echo the script is working"""
-                withCredentials([[
-                    $class: 'UsernamePasswordMultiBinding',
-                    credentialsId: github,
-                    usernameVariable: 'user',
-                    passwordVariable: 'pw',
-                ]])
-                sh """python3 PythonCredCheck/test.py"""
+               withCredentials([[
+                  $class: 'UsernamePasswordMultiBinding',
+                   credentialsId: 98,
+                   usernameVariable: 'user',
+                   passwordVariable: 'pw',
+                ]]) {
+                sh """
+                        export DB_USERNAME="${user}"
+                        export DB_PASSWORD="${pw}"
+                        python3 bartek-jenkins-testing/python/test.py
+                   """
+                }
             }
         }
     }
