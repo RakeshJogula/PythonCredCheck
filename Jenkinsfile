@@ -3,7 +3,8 @@ pipeline {
   stages {
     stage('Environment  Build') {
       steps {
-        withCredentials([usernamePassword(credentialsId: '1', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]){
+        withCredentials([gitUsernamePassword(credentialsId: '1', gitToolName: 'Default')])
+				{
 				bat 'echo $PASSWORD'
 				echo USERNAME
 				echo "username is $USERNAME"
