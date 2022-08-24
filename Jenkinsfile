@@ -4,7 +4,7 @@ pipeline {
     stage('Environment  Build') {
       steps {
         withCredentials([usernamePassword(credentialsId: '1', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-          shell """set DB_USERNAME="${USERNAME}" set DB_PASSWORD = "${PASSWORD}" python3 -u PythonCredCheck/test.py """
+          shell """python3 -u PythonCredCheck/test.py"""
         }
       }
     }
