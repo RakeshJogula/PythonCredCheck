@@ -6,12 +6,12 @@ pipeline {
                withCredentials([[
                   $class: 'UsernamePassword',
                    credentialsId: github,
-                   usernameVariable: 'user',
-                   passwordVariable: 'pw',
+                   usernameVariable: 'username',
+                   passwordVariable: 'password',
                 ]]) {
                 bat """
-                        export DB_USERNAME="${user}"
-                        export DB_PASSWORD="${pw}"
+                        export DB_USERNAME="${username}"
+                        export DB_PASSWORD="${password}"
                         python PythonCredCheck/test.py
                    """
                 }
