@@ -1,8 +1,5 @@
 pipeline {
   agent any
-   environment {
-     env.PATH = "c:\\Windows\\System32"
- }
   stages {
     stage('Environment  Build') {
       steps {
