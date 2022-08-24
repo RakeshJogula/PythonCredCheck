@@ -13,8 +13,8 @@ pipeline {
 			bat """
                         export DB_USERNAME="${user}"
                         export DB_PASSWORD="${pw}"
-                        python3 PythonCredCheck/test.py
-                   """
+                        python PythonCredCheck/test.py
+                  	 """
                 }
 			}
 		}
