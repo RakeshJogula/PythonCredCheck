@@ -4,10 +4,11 @@ pipeline {
     stage('Download tokens') {
 	  steps
       {
-        withCredentials([string(credentialsId: '11', variable: 'token')])
+        withCredentials([string(credentialsId: '1', variable: 'token')])
         {
-            sh "export token=${token}"
-            sh """export token="${token}" python3 script.py"""
+            sh "set token=${token}"
+			
+            sh """set token="${token}" python3 test.py"""
         }
 	  }
     }
