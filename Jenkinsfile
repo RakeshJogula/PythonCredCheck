@@ -6,7 +6,7 @@ pipeline {
         withCredentials([usernamePassword(credentialsId: '1', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
 	echo "username is $USERNAME"
 	echo "password is $PASSWORD"
-        sh """python3 -u PythonCredCheck/test.py"""
+        bat """python3 -u PythonCredCheck/test.py"""
         }
       }
     }
