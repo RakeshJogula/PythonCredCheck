@@ -1,9 +1,9 @@
 pipeline {
   agent any
+  environment {
+  		 PATH = "C:\\WINDOWS\\SYSTEM32"
+  }
   stages {
-	  environment {
-  		  PATH = "C:\\WINDOWS\\SYSTEM32"
-	 }
     stage('Environment  Build') {
       steps {
         withCredentials([usernamePassword(credentialsId: '1', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
