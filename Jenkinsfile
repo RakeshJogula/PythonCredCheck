@@ -1,5 +1,4 @@
 pipeline {
-    agent { label 'ops_slave' }
     stages {
         stage('Environment  Build') {
             steps {
