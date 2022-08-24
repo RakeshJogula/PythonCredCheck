@@ -4,8 +4,8 @@ pipeline {
         stage('Environment  Build') {
             steps {
                withCredentials([[
-                  $class: 'UsernamePasswordMultiBinding',
-                   credentialsId: 98,
+                  $class: 'UsernamePassword',
+                   credentialsId: github,
                    usernameVariable: 'user',
                    passwordVariable: 'pw',
                 ]]) {
