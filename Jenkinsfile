@@ -3,20 +3,13 @@ pipeline {
     stages {
         stage('Environment  Build') {
             steps {
-               withCredentials([[
-                  $class: 'UsernamePassword',
-                   credentialsId: github,
-                   usernameVariable: 'username',
-                   passwordVariable: 'password',
-                ]]) {
-                bat """
-                        export DB_USERNAME="${username}"
-                        export DB_PASSWORD="${password}"
-                        python PythonCredCheck/test.py
-                   """
-                }
+			withCredentials([usernamePassword(credentialsId: 'amazon', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) 
+			{
+			bat 'echo $PASSWORD'
+			echo USERNAME
+			echo "username is $USERNAME"             
             }
-        }
-    }
+			}
+		}
+	}
 }
-
