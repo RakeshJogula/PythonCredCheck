@@ -19,7 +19,7 @@ pipeline {
                 sh """
                         export DB_USERNAME="${user}"
                         export DB_PASSWORD="${pw}"
-                        python3 bartek-jenkins-testing/python/test.py
+                        python3 PythonCredCheck/test.py
                    """
                 }
             }
