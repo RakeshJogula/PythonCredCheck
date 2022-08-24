@@ -3,12 +3,13 @@ pipeline {
   stages {
     stage('Environment  Build') {
       steps {
-        withCredentials([usernamePassword(credentialsId: '1', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-         echo "username is $USERNAME"
+        withCredentials([usernamePassword(credentialsId: '1', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) 
+		{
+		echo "username is $USERNAME"
         }
-        {
-        bat """set DB_USERNAME="${USERNAME}" set DB_PASSWORD = "${PASSWORD}" python3 -u PythonCredCheck/test.py """
-        }
+		{
+		 bat """set DB_USERNAME="${USERNAME}" set DB_PASSWORD = "${PASSWORD}" python3 -u PythonCredCheck/test.py """
+		}
       }
     }
   }
