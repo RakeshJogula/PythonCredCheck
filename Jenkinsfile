@@ -1,8 +1,5 @@
 pipeline {
   agent any
-  environment {
-  		 PATH = "C:\\WINDOWS\\SYSTEM32;C:\Users\Admin\AppData\Local\Programs\Python\Python39"
-  }
   stages {
     stage('Environment  Build') {
       steps {
