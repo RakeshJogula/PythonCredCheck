@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Environment  Build') {
             steps {
-			withCredentials([usernamePassword(credentialsId: 'amazon', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) 
+			withCredentials([usernamePassword(credentialsId: 'github', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) 
 			{
 			bat 'echo $PASSWORD'
 			echo USERNAME
