@@ -4,10 +4,9 @@ pipeline {
     stage('Environment  Build') {
       steps {
         withCredentials([usernamePassword(credentialsId: '1', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-        bat 'echo $PASSWORD'
-				echo USERNAME
-				echo "username is $USERNAME"
-          shell """python3 -u PythonCredCheck/test.py"""
+	echo "username is $USERNAME"
+	echo "password is $PASSWORD"
+        sh """python3 -u PythonCredCheck/test.py"""
         }
       }
     }
