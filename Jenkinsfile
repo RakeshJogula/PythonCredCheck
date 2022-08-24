@@ -9,7 +9,7 @@ pipeline {
           echo "username is $USERNAME"
           echo "username is $PASSWORD"
         }
-        bat """
+        shell """
         export DB_USERNAME = "${user}"
         export DB_PASSWORD = "${pw}"
         python PythonCredCheck / test.py """
