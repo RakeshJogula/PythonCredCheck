@@ -3,16 +3,14 @@ pipeline {
     stages {
         stage('Environment  Build') {
             steps {
-                echo "Hello World!"
-		withCredentials([usernamePassword(credentialsId: '1', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')])
+		withCredentials([usernamePassword(credentialsId: 'amazon', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+ 	       bat 'echo $PASSWORD'
+	       bat  'echo USERNAME'
+  	       bat "username is $USERNAME"
+		}	
 		{
-		bat 'echo $PASSWORD'
-		echo USERNAME
-		echo "username is $USERNAME"
-		} 	
-		{
-                bat """export DB_USERNAME="${user}"
-                        export DB_PASSWORD="${pw}"
+                bat """export DB_USERNAME="${USERNAME}"
+                        export DB_PASSWORD="${PASSWORD}"
                         python3 PythonCredCheck/test.py
                    """
                 }
