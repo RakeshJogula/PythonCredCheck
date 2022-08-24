@@ -3,11 +3,10 @@ pipeline {
   stages {
     stage('Environment  Build') {
       steps {
-        withCredentials([usernamePassword(credentialsId: '1', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-			bat """set  DB_USERNAME="${USERNAME}"
-			       set  DB_PASSWORD="${PASSWORD}" 
+		withCredentials([string(credentialsId: '2', variable: 'TOKEN')])
+	      		bat """set  DB_TOKEN="${TOKEN}"
 			       C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python39\\python.exe test.py"""
-			echo "${USERNAME}"
+			echo "${TOKEN}"
         }
       }
     }
