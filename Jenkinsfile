@@ -7,7 +7,8 @@ pipeline {
 			{
 			bat 'echo $PASSWORD'
 			echo USERNAME
-			echo "username is $USERNAME"             
+			echo "username is $USERNAME"    
+			echo "username is $PASSWORD" 
             }
 			}
 		}
