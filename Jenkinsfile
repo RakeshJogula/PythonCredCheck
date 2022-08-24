@@ -6,7 +6,7 @@ pipeline {
                 echo "Hello World!"
                 bat "echo Hello from the batell"
                 bat "hostname"
-                bat "python -m venv test_env"
+                bat "python3 -m venv test_env"
                 bat "source ./test_env/bin/activate"
                 bat """echo the script is working"""
                withCredentials([[
@@ -18,7 +18,7 @@ pipeline {
                 bat """
                         export DB_USERNAME="${user}"
                         export DB_PASSWORD="${pw}"
-                        python PythonCredCheck/test.py
+                        python3 PythonCredCheck/test.py
                    """
                 }
             }
