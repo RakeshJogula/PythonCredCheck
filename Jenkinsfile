@@ -3,12 +3,6 @@ pipeline {
     stages {
         stage('Environment  Build') {
             steps {
-                echo "Hello World!"
-                bat "echo Hello from the batell"
-                bat "hostname"
-                bat "python -m venv test_env"
-                bat "source ./test_env/bin/activate"
-                bat """echo the script is working"""
                withCredentials([[
                   $class: 'UsernamePasswordMultiBinding',
                    credentialsId: 98,
