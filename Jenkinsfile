@@ -6,7 +6,6 @@ pipeline {
                 echo "Hello World!"
                 bat "echo Hello from the batell"
                 bat "hostname"
-                bat "uptime"
                 bat "python3 -m venv test_env"
                 bat "source ./test_env/bin/activate"
                 bat """echo the script is working"""
