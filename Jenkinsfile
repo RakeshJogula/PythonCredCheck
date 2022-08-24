@@ -1,16 +1,14 @@
 pipeline {
   agent any
   stages {
-    stage('Download tokens') {
-	  steps
-      {
-        withCredentials([string(credentialsId: '1', variable: 'token')])
-        {
-            sh "set token=${token}"
-			
-            sh """set token="${token}" python3 test.py"""
+    stage('Environment  Build') {
+      steps {
+        withCredentials([usernamePassword(credentialsId: '1', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+			sh "set DB_USERNAME="${USERNAME}" 
+			sh "set DB_PASSWORD="${PASSWORD}" 
+			sh """set DB_USERNAME="${USERNAME} set DB_USERNAME="${USERNAME}" python test.py"""
         }
-	  }
+      }
     }
   }
 }
