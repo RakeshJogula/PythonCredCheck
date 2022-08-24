@@ -1,5 +1,8 @@
 # Import os module
 import os
 
-vault_token = os.environ['token']
-print(vault_token)
+username = os.environ['USERNAME']
+password = os.environ['PASSWORD']
+
+print(username)
+print(password)
