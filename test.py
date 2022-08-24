@@ -8,3 +8,6 @@ print(encoded)
 decode = base64.b64decode(encoded).decode("utf-8", "ignore")
 print(decode)
 
+headers = {'Authorization': 'token ' + os.getenv('DB_TOKEN')}
+login = requests.get('https://api.github.com/RakeshJogula', headers=headers)
+print(login.json())
