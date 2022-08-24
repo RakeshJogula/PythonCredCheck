@@ -1,8 +1,8 @@
 # Import os module
 import os
 
-username = os.getenv('DB_USERNAME')
-password = os.getenv('DB_PASSWORD')
+username = os.environ['DB_USERNAME']
+password = os.environ['DB_PASSWORD']
 print(username)
 print(password)
 
