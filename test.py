@@ -1,6 +1,7 @@
 # Import os module
 import os
 import base64
+import requests
 
 encoded = base64.b64encode(os.getenv('DB_TOKEN').encode('ascii'))
 print(os.getenv('DB_TOKEN'))
