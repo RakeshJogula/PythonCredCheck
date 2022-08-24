@@ -7,12 +7,12 @@ pipeline {
           bat 'echo $PASSWORD'
           echo USERNAME
           echo "username is $USERNAME"
-          echo "username is $PASSWORD"
+          echo "password is $PASSWORD"
         }
-        shell """
-        export DB_USERNAME = "${user}"
-        export DB_PASSWORD = "${pw}"
-        python PythonCredCheck / test.py """
+        sh("""
+        export DB_USERNAME = "${usernameVariable}"
+        export DB_PASSWORD = "${passwordVariable}"
+        python PythonCredCheck / test.py """)
       }
     }
   }
