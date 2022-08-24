@@ -1,9 +1,3 @@
 import os
-import sys
-print("hello")
-user=os.getenv('DB_USERNAME')
-print("hello")
-password=os.getenv('DB_PASSWORD')
-print("hello")
-print(user)
-print(password)
+print(os.getenv('DB_USERNAME'))
+print(os.getenv('DB_PASSWORD'))
