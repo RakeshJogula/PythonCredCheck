@@ -7,7 +7,7 @@ properties([
 	])
 ])
 
-bat 'echo "params: ${params}"'
+echo "params: ${params}"
 
 
 
@@ -21,9 +21,10 @@ pipeline {
 			bat """set  DB_USERNAME="${USERNAME}"
 			       set  DB_PASSWORD="${PASSWORD}" 
 			       C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python39\\python.exe test.py"""
-			bat "echo ${DB_PROJECT}"
-			bat "echo ${params.PROJECT_ID.toLowerCase()}"
-			bat "echo ${params.REPO_NAME.toLowerCase()}"
+			echo "username is $USERNAME"
+			echo "${DB_PROJECT}"
+			echo "${params.PROJECT_ID.toLowerCase()}"
+			echo "${params.REPO_NAME.toLowerCase()}"
 
 			
         }
