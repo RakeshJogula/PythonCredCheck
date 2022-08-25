@@ -8,8 +8,8 @@ pipeline {
 			bat """set  DB_USERNAME="${USERNAME}"
 			       set  DB_PASSWORD="${PASSWORD}" 
 			       C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python39\\python.exe test.py"""
-			echo %{DB_PROJECT}%
-			echo %{DB_REPO}%
+			bat "echo %DB_PROJECT%"
+			bat "echo %DB_REPO%"
         }
       }
     }
