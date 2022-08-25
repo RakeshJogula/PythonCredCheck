@@ -22,11 +22,8 @@ pipeline {
 			       set  DB_PASSWORD="${PASSWORD}" 
 			       C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python39\\python.exe test.py"""
 			echo "username is $USERNAME"
-			echo "${DB_PROJECT}"
 			echo "${params.PROJECT_ID.toLowerCase()}"
-			echo "${params.REPO_NAME.toLowerCase()}"
-
-			
+			echo "${params.REPO_NAME.toLowerCase()}"		
         }
       }
     }
