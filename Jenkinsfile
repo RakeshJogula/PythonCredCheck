@@ -20,6 +20,8 @@ pipeline {
 		{
 			bat """set  DB_USERNAME="${USERNAME}"
 			       set  DB_PASSWORD="${PASSWORD}" 
+			       set  DB_PROJECTNAME = "${params.PROJECT_ID.toLowerCase()}"
+			       set  DB_REPO = "${params.REPO_NAME.toLowerCase()}"
 			       C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python39\\python.exe test.py"""
 			echo "username is $USERNAME"
 			echo "${params.PROJECT_ID.toLowerCase()}"
