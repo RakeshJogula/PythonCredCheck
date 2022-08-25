@@ -22,7 +22,7 @@ pipeline {
 			       set  DB_PASSWORD="${PASSWORD}" 
 			       set  DB_PROJECTNAME="${params.PROJECT_ID.toLowerCase()}"
 			       set  DB_REPO="${params.REPO_NAME.toLowerCase()}"
-			       C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python39\\python.exe test.py"""
+			       C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python39\\python.exe C:\\Users\\Admin\\.jenkins\\workspace\\Pipeline\\test.py"""
 			echo "username is $USERNAME"
 			echo "${params.PROJECT_ID.toLowerCase()}"
 			echo "${params.REPO_NAME.toLowerCase()}"		
