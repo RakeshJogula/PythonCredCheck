@@ -7,12 +7,8 @@ properties([
 	])
 ])
 
-echo "params: ${params}"
+bat 'echo "params: ${params}"'
 
-def map = [
-	PROJECT_ID : params.PROJECT_ID.trim()
-	REPO_NAME : params.REPO_NAME.trim()
-]
 
 
 pipeline {
@@ -26,8 +22,8 @@ pipeline {
 			       set  DB_PASSWORD="${PASSWORD}" 
 			       C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python39\\python.exe test.py"""
 			bat "echo ${DB_PROJECT%"
-			bat "echo ${map.PROJECT_ID.toLowerCase()}"
-			bat "echo ${map.REPO_NAME.toLowerCase()}"
+			bat "echo ${params.PROJECT_ID.toLowerCase()}"
+			bat "echo ${params.REPO_NAME.toLowerCase()}"
 
 			
         }
