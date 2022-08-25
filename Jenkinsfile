@@ -21,7 +21,7 @@ pipeline {
 			bat """set  DB_USERNAME="${USERNAME}"
 			       set  DB_PASSWORD="${PASSWORD}" 
 			       C:\\Users\\Admin\\AppData\\Local\\Programs\\Python\\Python39\\python.exe test.py"""
-			bat "echo ${DB_PROJECT%"
+			bat "echo ${DB_PROJECT}"
 			bat "echo ${params.PROJECT_ID.toLowerCase()}"
 			bat "echo ${params.REPO_NAME.toLowerCase()}"
 
